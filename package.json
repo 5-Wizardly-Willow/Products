@@ -1,0 +1,26 @@
+{
+  "name": "sdc",
+  "version": "1.0.0",
+  "description": "",
+  "main": "server.js",
+  "scripts": {
+    "start:mongo": "node server.js",
+    "start:sql": "node server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/5-Wizardly-Willow/Product.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/5-Wizardly-Willow/Product/issues"
+  },
+  "homepage": "https://github.com/5-Wizardly-Willow/Product#readme",
+  "dependencies": {
+    "express": "^4.17.1",
+    "mongoose": "^5.12.0",
+    "mysql2": "^2.2.5"
+  }
+}
