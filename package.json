@@ -4,8 +4,8 @@
   "description": "",
   "main": "server.js",
   "scripts": {
-    "start:mongo": "node server.js",
-    "start:sql": "node server.js"
+    "start": "nodemon sql/sql.js",
+    "start:mongo": "nodemon mongo/mongo.js"
   },
   "repository": {
     "type": "git",
@@ -21,6 +21,7 @@
   "dependencies": {
     "express": "^4.17.1",
     "mongoose": "^5.12.0",
-    "mysql2": "^2.2.5"
+    "mysql2": "^2.2.5",
+    "pg": "^8.5.1"
   }
 }
