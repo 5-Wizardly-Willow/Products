@@ -4,8 +4,8 @@
   "description": "",
   "main": "server.js",
   "scripts": {
-    "start": "nodemon sql/sql.js",
-    "start:mongo": "nodemon mongo/mongo.js"
+    "start": "node src/server.js",
+    "dev": "nodemon src/server.js"
   },
   "repository": {
     "type": "git",
@@ -20,8 +20,6 @@
   "homepage": "https://github.com/5-Wizardly-Willow/Product#readme",
   "dependencies": {
     "express": "^4.17.1",
-    "mongoose": "^5.12.0",
-    "mysql2": "^2.2.5",
-    "pg": "^8.5.1"
+    "mongoose": "^5.12.0"
   }
 }

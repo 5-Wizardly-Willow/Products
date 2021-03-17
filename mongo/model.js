@@ -12,6 +12,12 @@ const productSchema = new mongoose.Schema({
     description : String,
     slogan : String,
     category : String,
+    features : [
+        {
+            feature: String,
+            value: String
+        }
+    ],
     styles : [
         {
             styleId : String,
@@ -32,6 +38,9 @@ const productSchema = new mongoose.Schema({
                 }
             ]
         }
+    ],
+    related : [
+        relatedId : Number
     ]
 });
 
