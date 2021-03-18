@@ -1,10 +1,10 @@
 const mongoose = require('mongoose');
 
 const productSchema = new mongoose.Schema({
-    productId : {
-        type : Number,
-        required : true,
-    },
+    // productId : {
+    //     type : Number,
+    //     required : true,
+    // },
     name : {
         type: String,
         required : true,
@@ -20,7 +20,7 @@ const productSchema = new mongoose.Schema({
     ],
     styles : [
         {
-            styleId : String,
+            styleId : Number,
             name : String,
             price : String,
             salePrice : String,
@@ -40,7 +40,7 @@ const productSchema = new mongoose.Schema({
         }
     ],
     related : [
-       Number
+        Number
     ]
 });
 
