@@ -15,7 +15,7 @@ log = function (d) {
 const DB = `mongodb+srv://dbAdmin:${process.env.DB_PASSWORD}@cluster0.cffca.mongodb.net/myFirstDatabase?retryWrites=true&w=majority`;
 mongoose.connect(DB, { useNewUrlParser: true, useUnifiedTopology: true });
 
-// For City collectioon
+// For data collection
 let count = 0;
 
 fs.createReadStream('data/product.csv')
