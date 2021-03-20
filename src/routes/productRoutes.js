@@ -17,5 +17,12 @@ router.get('/:product_id/styles', productController.getProductStyles);
 
 router.get('/:product_id/related' , productController.getRelatedProducts);
 
+/*
+input : product_id
+
+/products/:product_id -> products
+/products//:product_id/styles -> styles
+/products//:product_id/related -> products
+*/
 
 module.exports = router;

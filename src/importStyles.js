@@ -21,12 +21,12 @@ async function main() {
 
   console.log('connected');
   const istyles = db.connections[0].collection('import_styles');
-  istyles.find({}, { }).each(async (err, p) => { // limit: 50 
+  istyles.find({}, { limit: 10000 }).each(async (err, p) => { // limit: 50 
     // console.log(p);
     if (p !== null) {
       Style.create({
-        code: p.id,
-        productCode: p.productId,
+        styleId: p.id,
+        productId: p.productId,
         name: p.name,
         sale_price: p.sale_price  === 'null' ? null : p.sale_price,
         original_price: p.original_price,

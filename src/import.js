@@ -23,17 +23,17 @@ async function main() {
 
     console.log('connected');
     const iproducts = db.connections[0].collection('import_product');
-    iproducts.find({}, {  }).each(async (err, p)  => { // limit: 100000
+    iproducts.find({}, { limit: 10000 }).each(async (err, p)  => { // limit: 100000
         //console.log(p);
-        if (p !== null) {
+        if (p !== null && p.id !== 'id') {
             Product.create({
-                code: p.id,
+                productId: p.id,
                 name: p.name,
                 slogan: p.slogan,
                 description: p.description,
                 category: p.category,
                 features: await featuresLookup(db, p.id)
-            });
+            }).catch(e => console.log(e, p));
         }
     });
     console.log('done.');

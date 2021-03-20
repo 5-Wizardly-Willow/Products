@@ -10,6 +10,11 @@ const featureSchema = new mongoose.Schema(
   
 const productSchema = new mongoose.Schema(
     {
+        productId: {
+            type: Number,
+            required : true,
+            // index: unique
+        },
         name : {
             type: String,
             required : true,
