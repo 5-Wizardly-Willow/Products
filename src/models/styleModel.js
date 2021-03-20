@@ -1,14 +1,24 @@
 const mongoose = require('mongoose');
 
+const PhotoSchema = new mongoose.Schema({
+  thumbnailUrl: String,
+  url: String,
+});
+
+const SkuSchema = new mongoose.Schema({
+  sku: String,
+  quantity: Number,
+  size: String,
+});
+
 const styleSchema = new mongoose.Schema([
   {
-    productId : {
-        type : mongoose.Schema.ObjectId,
-        ref : 'Product'
-    },
+    productCode: Number,
     name: String,
     sale_price: Number,
     original_price: Number,
+    photos: [PhotoSchema],
+    skus: [SkuSchema],
   },
 ]);
 

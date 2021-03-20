@@ -1,5 +1,7 @@
 const mongoose = require('mongoose');
 
+const 
+
 const productSchema = new mongoose.Schema({
     productId : {
         type : Number,
