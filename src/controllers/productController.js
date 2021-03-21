@@ -1,6 +1,12 @@
+const Cache = require('lru-cache');
 const Product = require('../models/productModel');
 const Related = require('../models/relatedProductsModel');
 const Style = require('../models/styleModel');
+
+const cachedProducts = new Cache({
+  max: 1000,
+  maxAge: 1000 * 15
+});
 
 exports.getAllProducts = async (req, res, next) => {
   try {
@@ -53,8 +59,14 @@ exports.DeleteProduct = async (req, res, next) => {
 };
 
 exports.getProductById = async (req, res, next) => {
+  let product = cachedProducts.get(req.params.product_id);
   try {
-    const product = await Product.findOne({ productId: req.params.product_id });
+    if (!product) { // cache miss
+      product = await Product.findOne({ productId: req.params.product_id });
+      cachedProducts.set(req.params.product_id, product);
+    } else { // cache hit
+      console.log('cachedProducts cache hit');
+    }
     res.status(200).json({ status: 'success', data: product });
   } catch (err) {
     res.status(500).json({ error: err });

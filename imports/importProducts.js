@@ -1,5 +1,5 @@
 const mongoose = require('mongoose');
-const Product = require('./models/productModel');
+const Product = require('../src/models/productModel');
 
 /*
 1. mongoimport -> import collection 1>1 per CSV

@@ -39,5 +39,3 @@ async function main() {
 }
 
 main();
-
-// ServiceWorkerMessageEvent, kubernetes, docker swarm, graphQl

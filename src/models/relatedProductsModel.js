@@ -2,12 +2,12 @@ const mongoose = require('mongoose');
 
 const relatedProductsSchema = new mongoose.Schema([
   {
-    relatedId : Number,
+    // relatedId : Number,
     productId: {
       type: Number,
       required: Number,
     },
-    related_product_id: Number,
+    related_product_ids: [Number],
   },
 ]);
 
