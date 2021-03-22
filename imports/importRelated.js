@@ -13,11 +13,11 @@ async function main() {
   const irelated = db.connections[0].collection('import_related');
   let productId = 0;
   let related_product_ids;
+  // limit: 50
   irelated
-    .find({}, { limit: 10000 })
+    .find({ limit: 10 }, {})
     .sort({ current_product_id: 1 })
     .each(async (err, result) => {
-      // limit: 50
       if (result !== null) {
         if (productId !== result.current_product_id) {
           // check if moved into a new product

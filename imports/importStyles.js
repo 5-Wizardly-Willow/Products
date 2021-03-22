@@ -1,5 +1,5 @@
 const mongoose = require('mongoose');
-const Style = require('./models/styleModel');
+const Style = require('../src/models/styleModel');
 
 const DB = `mongodb://localhost:27017/sdc`;
 
@@ -21,14 +21,15 @@ async function main() {
 
   console.log('connected');
   const istyles = db.connections[0].collection('import_styles');
-  istyles.find({}, { limit: 10000 }).each(async (err, p) => { // limit: 50 
+  istyles.find({ limit: 10 }, {}).each(async (err, p) => {
+    // limit: 10000
     // console.log(p);
     if (p !== null) {
       Style.create({
         styleId: p.id,
         productId: p.productId,
         name: p.name,
-        sale_price: p.sale_price  === 'null' ? null : p.sale_price,
+        sale_price: p.sale_price === 'null' ? null : p.sale_price,
         original_price: p.original_price,
         photos: await photosLookup(db, p.id),
         skus: await skusLookup(db, p.id),

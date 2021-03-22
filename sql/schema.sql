@@ -8,6 +8,7 @@ CREATE TABLE Products = (
     productId INT NOT NULL AUTO_INCREMENT,
     name varchar(255) NOT NULL,
     slogan varchar(255),
+    
     description varchar(255),
     category varchar(255),
     styleId INT,
