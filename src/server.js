@@ -4,6 +4,8 @@ const dotenv = require('dotenv');
 
 const productRouter = require('./routes/productRoutes');
 
+const cartRouter = require('./routes/cartRoutes');
+
 dotenv.config({ path: './config.env' });
 
 const app = express();
@@ -13,10 +15,15 @@ const Port = 4000;
 const DB_URL = `mongodb://localhost:27017/sdc`;
 const DB_OPTIONS = 'minSize=30&poolSize=100';
 
-mongoose.connect(`${DB_URL}?${DB_OPTIONS}`, { useNewUrlParser: true, useUnifiedTopology: true });
+mongoose.connect(`${DB_URL}?${DB_OPTIONS}`, {
+  useCreateIndex: true,
+  useNewUrlParser: true,
+  useUnifiedTopology: true,
+});
 
 app.use(express.json());
 
 app.use('/products', productRouter);
+app.use('/cart', cartRouter);
 
 app.listen(Port, () => console.log(`Port: ${Port}`));

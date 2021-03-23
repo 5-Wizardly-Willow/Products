@@ -5,7 +5,7 @@ const relatedProductsSchema = new mongoose.Schema([
     // relatedId : Number,
     productId: {
       type: Number,
-      required: Number,
+      required: true,
     },
     related_product_ids: [Number],
   },
