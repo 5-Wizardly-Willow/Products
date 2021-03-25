@@ -20,15 +20,15 @@ import { sleep } from 'k6';
 /* ---------------------STRESS TEST -------------------- */
 export let options = {
   stages: [
-    { duration: '2s', target: 100 }, // below normal load
-    { duration: '5s', target: 100 },
-    { duration: '2s', target: 200 }, // normal load
-    { duration: '5s', target: 200 },
-    { duration: '2s', target: 300}, // around the breaking point
-    { duration: '5s', target: 300 },
-    { duration: '2s', target: 400 }, // beyond the breaking point
-    { duration: '5s', target: 400 },
-    { duration: '10s', target: 0 }, // scale down. Recovery stage.
+    { duration: '20m', target: 5000 }, // below normal load
+    { duration: '50m', target: 5000 },
+    { duration: '20m', target: 10000 }, // normal load
+    { duration: '50m', target: 10000 },
+    { duration: '20m', target: 15000 }, // around the breaking point
+    { duration: '50m', target: 15000 },
+    { duration: '20m', target: 20000 }, // beyond the breaking point
+    { duration: '50m', target: 20000 },
+    { duration: '100m', target: 0 }, // scale down. Recovery stage.
   ],
 };
 
