@@ -15,7 +15,7 @@ const Port = 4000;
 //docker build -f Dockerfile -t products-api .
 
 // const DB = `mongodb+srv://dbAdmin:${process.env.DB_PASSWORD}@cluster0.cffca.mongodb.net/myFirstDatabase?retryWrites=true&w=majority`
-const DB_URL = `mongodb://localhost:27017/sdc` || process.env.DB_URL;
+const DB_URL = process.env.DB_URL || `mongodb://localhost:27017/sdc`;
 const DB_OPTIONS = 'minSize=30&poolSize=100';
 
 mongoose.connect(`${DB_URL}?${DB_OPTIONS}`, {
