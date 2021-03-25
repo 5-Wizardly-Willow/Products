@@ -1,12 +1,12 @@
 const mongoose = require('mongoose');
 
 const PhotoSchema = new mongoose.Schema({
-  thumbnailUrl: String,
+  thumbnail_url: String,
   url: String,
 }, { _id: false });
 
 const SkuSchema = new mongoose.Schema({
-  sku: String,
+  sku: Number,
   quantity: Number,
   size: String,
 }, { _id: false });

@@ -23,7 +23,7 @@ async function main() {
 
     console.log('connected');
     const iproducts = db.connections[0].collection('import_product');
-    iproducts.find({}, { limit: 10000 }).each(async (err, p)  => { // limit: 100000
+    iproducts.find({}, { /* limit: 10000 */ }).each(async (err, p)  => { // limit: 100000
         //console.log(p);
         if (p !== null && p.id !== 'id') {
             Product.create({
