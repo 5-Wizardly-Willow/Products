@@ -5,7 +5,8 @@
   "main": "server.js",
   "scripts": {
     "start": "node src/server.js",
-    "dev": "nodemon src/server.js"
+    "dev": "nodemon src/server.js",
+    "test": "k6 run scripts/script.js"
   },
   "repository": {
     "type": "git",
@@ -23,7 +24,8 @@
     "dotenv": "^8.2.0",
     "express": "^4.17.1",
     "lru-cache": "^6.0.0",
-    "mongoose": "^5.12.0"
+    "mongoose": "^5.12.0",
+    "newrelic": "^7.2.0"
   },
   "devDependencies": {
     "chai": "^4.3.4",
