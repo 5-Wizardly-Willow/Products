@@ -2,3 +2,5 @@ node_modules/
 config.env
 scripts/data
 newrelic.js
+package-lock.json
+*.log
