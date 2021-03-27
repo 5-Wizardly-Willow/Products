@@ -2,6 +2,7 @@ require('newrelic');
 const express = require('express');
 const mongoose = require('mongoose');
 const dotenv = require('dotenv');
+const path = require('path');
 
 const productRouter = require('./routes/productRoutes');
 
@@ -16,8 +17,7 @@ const Port = 6000;
 
 // const DB = `mongodb+srv://dbAdmin:${process.env.DB_PASSWORD}@cluster0.cffca.mongodb.net/myFirstDatabase?retryWrites=true&w=majority`
 const DB_URL = process.env.DB_URL || `mongodb://localhost:27017/sdc`;
-const DB_OPTIONS = 'minSize=30&poolSize=100';
-console.log('====>>>>>>>>>>>>>>>>>', DB_URL);
+const DB_OPTIONS = process.env.DB_OPTIONS || 'minSize=30&poolSize=500';
 mongoose.connect(`${DB_URL}?${DB_OPTIONS}`, {
   useCreateIndex: true,
   useNewUrlParser: true,
@@ -29,6 +29,6 @@ app.use(express.json());
 app.use('/products', productRouter);
 app.use('/cart', cartRouter);
 
-app.use(express.static('./diskloaderio'));
+app.use(express.static(path.join(__dirname, 'diskloaderio')));
 
 app.listen(Port, () => console.log(`Port: ${Port}`));
